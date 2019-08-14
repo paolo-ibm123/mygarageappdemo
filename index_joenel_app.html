@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Selenium testing</title>
+<script type="text/javascript">
+function isDate(){ 
+	try{
+		var date = new Date(document.getElementById('date').value);
+		var timestamp = Date.parse(date); 
+		if (isNaN(timestamp) == false) {
+			document.getElementById('spanDate').style.color = 'green';
+			document.getElementById('spanDate').innerHTML = 'PASS';
+		}else{
+			document.getElementById('spanDate').style.color = 'red';
+			document.getElementById('spanDate').innerHTML = 'FAIL';
+		}
+	}catch(err){
+		document.getElementById('spanDate').style.color = 'red';
+		document.getElementById('spanDate').innerHTML = 'FAIL';
+	}
+}
+
+
+function isTime(){ 
+	try{
+		var time = document.getElementById('time').value;
+		 if(time == "" || time.indexOf(":")<0)
+		{
+			document.getElementById('spanTime').style.color = 'red';
+			document.getElementById('spanTime').innerHTML = 'FAIL';
+		}else{
+			document.getElementById('spanTime').style.color = 'green';
+			document.getElementById('spanTime').innerHTML = 'PASS';
+		}
+	}catch(err){
+		document.getElementById('spanTime').style.color = 'red';
+		document.getElementById('spanTime').innerHTML = 'FAIL';
+	}
+}
+
+function isNumber(){ 
+	try{
+		var number = document.getElementById('number').value;
+		if(isNaN(number)){
+			document.getElementById('spanNumber').style.color = 'red';
+			document.getElementById('spanNumber').innerHTML = 'FAIL';
+		 }else{
+			document.getElementById('spanNumber').style.color = 'green';
+			document.getElementById('spanNumber').innerHTML = 'PASS';
+		 }
+	}catch(err){
+		document.getElementById('spanNumber').style.color = 'red';
+		document.getElementById('spanNumber').innerHTML = 'FAIL';
+	}
+}
+</script>
+</head>
+
+
+<form>
+	<table border="1">
+		<tr>
+			<td>Data type</td>
+			<td>User Input</td>
+			<td></td>
+			<td></td>
+			<td>Result</td>
+		</tr>
+		<tr>
+			<td>Date</td>
+			<td>25122019</td>
+			<td><input id="date" type="date"  ></td>
+			<td><input type="button" value="Check if input is date" id="btnDate" onclick="isDate();" /></td>
+			<td><span id="spanDate"></span></td>
+		</tr>
+		<tr>
+			<td>Time</td>
+			<td>1211P</td>
+			<td><input id="time" type="time" ></td>
+			<td><input type="button" value="Check if input is time" id="btnTime" onclick="isTime();" /></td>
+			<td><span id="spanTime"></span></td>
+		</tr>
+		<tr>
+			<td>Number</td>
+			<td>123asdasd</td>
+			<td><input id="number" type="number"  ></td>
+			<td><input type="button" value="Check if input is number" id="btnNumber" onclick="isNumber();" /></td>
+			<td><span id="spanNumber"></span></td>
+		</tr>
+	</table> 
+	
+	
+	
+</form>
+</html>
